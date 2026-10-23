@@ -205,7 +205,7 @@
           <span class="font-semibold text-xs sm:text-sm">Halo Dian! Ingin transaksi hobi, mobil & gadget terverifikasi KYC tanpa risiko tawar liar?</span>
         </div>
         <button type="button" onclick="startTargetedTour()" class="bg-white text-blue-700 hover:bg-blue-50 font-extrabold px-3 py-1 rounded-lg text-xs shrink-0 transition flex items-center gap-1 shadow-xs">
-          <span>Mulai Tur 1 Menit</span> &rarr;
+          <span>Start 1-Minute Tour</span> &rarr;
         </button>
       </div>
     </div>
@@ -292,7 +292,7 @@
             </button>
             <button onclick="startTargetedTour()" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs sm:text-sm px-4 py-3 rounded-xl backdrop-blur-sm transition flex items-center gap-2">
               <i class="fa-solid fa-compass text-amber-300"></i>
-              <span>Panduan Fitur Interaktif</span>
+              <span>Interactive Feature Guide</span>
             </button>
           </div>
         </div>
@@ -508,7 +508,7 @@
         <!-- LEFT SIDE: 3/4 PAGE FORUM FEEDS (KASKUS / MICROSOFT HUB STYLE) -->
         <div class="lg:col-span-8 space-y-4">
           
-          <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-xs space-y-3">
+          <div id="tourTarget-forumfeeds" class="bg-white rounded-2xl p-4 border border-gray-200 shadow-xs space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h2 class="text-base sm:text-lg font-black text-olx-teal flex items-center gap-2">
@@ -866,7 +866,7 @@
       <div>
         <h4 class="font-black text-olx-teal mb-2.5 uppercase tracking-wider text-[11px]">Keamanan & Komunitas</h4>
         <ul class="space-y-1.5 text-gray-600 font-medium">
-          <li><span class="hover:text-olx-blue cursor-pointer" onclick="startTargetedTour()">Panduan Fitur Interaktif Hub</span></li>
+          <li><span class="hover:text-olx-blue cursor-pointer" onclick="startTargetedTour()">Interactive Hub Feature Guide</span></li>
           <li><span class="hover:text-olx-blue cursor-pointer" onclick="showToastNotification('Tips COD aman: Selalu bertemu di tempat ramai & gunakan pembayaran resmi!')">Panduan Aman Bertransaksi (COD)</span></li>
           <li><span class="hover:text-olx-blue cursor-pointer" onclick="openCreateCommunityModal()">Buat Komunitas Baru</span></li>
         </ul>
@@ -890,14 +890,14 @@
   <div id="tourFloatingCard">
     <div class="bg-white rounded-2xl shadow-2xl border-2 border-olx-blue p-4 text-gray-800 space-y-2">
       <div class="flex items-center justify-between text-xs border-b border-gray-100 pb-1">
-        <span class="bg-blue-50 text-blue-700 font-black px-2 py-0.5 rounded-full" id="tourStepBadge">Langkah 1 dari 4</span>
+        <span class="bg-blue-50 text-blue-700 font-black px-2 py-0.5 rounded-full" id="tourStepBadge">Step 1 of 4</span>
         <button type="button" onclick="closeTargetedTour()" class="text-gray-400 hover:text-gray-700 font-bold p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <h3 id="tourTitleText" class="text-xs sm:text-sm font-black text-olx-teal">Judul Panduan</h3>
-      <p id="tourDescText" class="text-xs text-gray-600 leading-relaxed">Deskripsi panduan...</p>
+      <h3 id="tourTitleText" class="text-xs sm:text-sm font-black text-olx-teal">Tour Title</h3>
+      <p id="tourDescText" class="text-xs text-gray-600 leading-relaxed">Tour description...</p>
       <div class="flex items-center justify-between pt-2 border-t border-gray-100 text-xs">
-        <button type="button" id="tourPrevBtn" onclick="prevTourStep()" class="text-gray-500 font-bold disabled:opacity-30">Kembali</button>
-        <button type="button" id="tourNextBtn" onclick="nextTourStep()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3.5 rounded-lg shadow-xs">Lanjut &rarr;</button>
+        <button type="button" id="tourPrevBtn" onclick="prevTourStep()" class="text-gray-500 font-bold disabled:opacity-30">Back</button>
+        <button type="button" id="tourNextBtn" onclick="nextTourStep()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3.5 rounded-lg shadow-xs">Next &rarr;</button>
       </div>
     </div>
   </div>
@@ -2582,23 +2582,23 @@
     const TOUR_STEPS = [
       { 
         targetId: 'navCommunityHubBtn', 
-        title: '1. Menu Community Hub', 
-        desc: 'Akses bursa komunitas terverifikasi Astra, diskusi spek, dan transaksi langsung tanpa nego liar.' 
+        title: '1. Community Hub Menu', 
+        desc: 'Access verified Astra community marketplaces, spec discussions, and direct transactions without wild haggling.' 
       },
       { 
         targetId: 'tourTarget-discovery', 
         title: '2. 30-Second Discovery Radar', 
-        desc: 'Iklan dengan like tertinggi dari komunitas ditampilkan dalam format story ringkas. Cek detail iklan atau langsung chat seller!' 
+        desc: 'The most-liked listings from the community are shown in a quick story format. Check the listing details or chat with the seller right away!' 
       },
       { 
         targetId: 'tourTarget-radar', 
         title: '3. Trend Price Radar', 
-        desc: 'Pantau tren pergerakan harga pasar 30 jam terakhir untuk barang paling dicari berdasarkan kategori yang Anda pilih.' 
+        desc: 'Track the market price trend over the last 30 hours for the most sought-after items, based on the category you select.' 
       },
       { 
-        targetId: 'navSellBtn', 
-        title: '4. Pasang Iklan Mudah 4-Langkah', 
-        desc: 'Klik + JUAL untuk menerbitkan iklan ke Beranda Umum atau ke Bursa Komunitas Terverifikasi dengan fitur Sundul.' 
+        targetId: 'tourTarget-forumfeeds', 
+        title: '4. Forum Feeds & High-Intent Threads', 
+        desc: 'Browse community threads and listings here. Switch tabs to sort the feed: For You (personalized picks), Hot Threads (most upvoted), Terbaru (latest posts), Terlaris (best-selling listings), and Most Viewed. Tap "Buat Iklan / Diskusi Baru" to post a listing or start a discussion in a community.' 
       }
     ];
 
@@ -4138,7 +4138,7 @@
       const step = TOUR_STEPS[appState.currentTourStep];
       if (!step) return;
 
-      document.getElementById('tourStepBadge').innerText = `Langkah ${appState.currentTourStep + 1} dari ${TOUR_STEPS.length}`;
+      document.getElementById('tourStepBadge').innerText = `Step ${appState.currentTourStep + 1} of ${TOUR_STEPS.length}`;
       document.getElementById('tourTitleText').innerText = step.title;
       document.getElementById('tourDescText').innerText = step.desc;
 
@@ -4146,7 +4146,7 @@
       if (prevBtn) prevBtn.disabled = (appState.currentTourStep === 0);
 
       const nextBtn = document.getElementById('tourNextBtn');
-      if (nextBtn) nextBtn.innerText = (appState.currentTourStep === TOUR_STEPS.length - 1) ? 'Selesai Tur' : 'Lanjut →';
+      if (nextBtn) nextBtn.innerText = (appState.currentTourStep === TOUR_STEPS.length - 1) ? 'Finish Tour' : 'Next →';
 
       setTimeout(() => {
         document.querySelectorAll('.tour-spotlight-highlight').forEach(el => el.classList.remove('tour-spotlight-highlight'));
@@ -4173,7 +4173,7 @@
         renderTourStep();
       } else {
         closeTargetedTour();
-        showToastNotification("🎉 Tur selesai! Anda siap mengeksplor Community Hub.");
+        showToastNotification("🎉 Tour complete! You're ready to explore the Community Hub.");
       }
     }
 
